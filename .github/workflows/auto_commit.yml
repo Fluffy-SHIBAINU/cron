@@ -22,8 +22,8 @@ jobs:
         run: |
           git add auto_generated_file.txt
           git commit -m "update job complete"
-      - name: Push changes
-        uses: adhrinae/push-changes@v1 # Or another similar action
+      - name: Push changes using alternative action
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref_name }}
