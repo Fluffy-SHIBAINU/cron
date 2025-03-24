@@ -14,6 +14,10 @@ jobs:
       - name: Make a change (replace with your logic)
         run: |
           echo "Automated update at $(date)" >> auto_generated_file.txt
+      - name: List files and content
+        run: |
+          ls -al
+          cat auto_generated_file.txt
       - name: Configure Git
         run: |
           git config --global user.email "i.shawn.yoon@gmail.com"
