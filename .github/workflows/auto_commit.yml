@@ -3,7 +3,9 @@ name: Auto Commit
 on:
   schedule:
     - cron: '*/1 * * * *'  # Runs every minute
-
+  push:
+    branches:
+      - main # Or your branch name
 jobs:
   auto_commit:
     runs-on: ubuntu-latest
