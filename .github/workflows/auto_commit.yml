@@ -28,3 +28,5 @@ jobs:
         with:
           commit_message: "Automated update"
           file_pattern: "auto_generated_file.txt"
+          github_token: ${{ secrets.PERSONAL_TOKEN }}
+          push_options: '--force'
