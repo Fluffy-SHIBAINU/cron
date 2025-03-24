@@ -2,7 +2,8 @@ name: Auto Commit
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Runs every 5 minutes (most reliable on free tier)
+    - cron: '0 0 * * *'   # Midnight UTC
+    - cron: '0 18 * * *'  # 6 PM UTC
   workflow_dispatch:       # Allow manual trigger too
 
 jobs:
