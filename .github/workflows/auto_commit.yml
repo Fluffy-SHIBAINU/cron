@@ -25,7 +25,7 @@ jobs:
       - name: Add and Commit
         run: |
           git add auto_generated_file.txt
-          git commit -m "update job complete"
+          git commit --allow-empty -m "update job complete"
       - name: Push changes using alternative action
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
