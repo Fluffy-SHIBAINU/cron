@@ -25,5 +25,5 @@ jobs:
       - name: Push changes using alternative action
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref_name }}
+          commit_message: "Automated update"
+          file_pattern: "auto_generated_file.txt"
