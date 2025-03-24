@@ -1,0 +1,27 @@
+name: Auto Commit
+
+on:
+  schedule:
+    - cron: '*/1 * * * *'  # Runs every minute
+
+jobs:
+  auto_commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Make a change (replace with your logic)
+        run: |
+          echo "Automated update at $(date)" >> auto_generated_file.txt
+      - name: Configure Git
+        run: |
+          git config --global user.email "i.shawn.yoon@gmail.com"
+          git config --global user.name "Shawn Yoon"
+      - name: Add and Commit
+        run: |
+          git add auto_generated_file.txt
+          git commit -m "update job complete"
+      - name: Push changes
+        uses: adhrinae/push-changes@v1 # Or another similar action
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref_name }}
