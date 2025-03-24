@@ -2,31 +2,29 @@ name: Auto Commit
 
 on:
   schedule:
-    - cron: '*/1 * * * *'  # Runs every minute
+    - cron: '*/5 * * * *'  # Runs every 5 minutes (most reliable on free tier)
+  workflow_dispatch:       # Allow manual trigger too
   push:
     branches:
       - main # Or your branch name
+
 jobs:
   auto_commit:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
-      - name: Make a change (replace with your logic)
+
+      - name: Make a change (simulate auto update)
         run: |
           echo "Automated update at $(date)" >> auto_generated_file.txt
-      - name: List files and content
-        run: |
-          ls -al
-          cat auto_generated_file.txt
+
       - name: Configure Git
         run: |
           git config --global user.email "i.shawn.yoon@gmail.com"
           git config --global user.name "Shawn Yoon"
-      - name: Add and Commit
-        run: |
-          git add auto_generated_file.txt
-          git commit --allow-empty -m "update job complete"
-      - name: Push changes using alternative action
+
+      - name: Commit & Push Changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Automated update"
